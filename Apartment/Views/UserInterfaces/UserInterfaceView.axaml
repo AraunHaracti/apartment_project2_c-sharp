@@ -1,0 +1,67 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Apartment.ViewModels"
+             xmlns:utils="clr-namespace:Apartment.Utils"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:DataType="vm:IUserInterfaceViewModel"
+             x:Class="Apartment.Views.UserInterfaces.UserInterfaceView">
+    
+    <UserControl.Styles>
+        <Style Selector="TextBox.Search">
+            <Setter Property="Width" Value="300"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style Selector="Button.Action">
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+        <Style Selector="Button.Pagination">
+            <Setter Property="Width" Value="40"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+        <Style Selector="TextBlock.Pagination">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+    </UserControl.Styles>
+
+    <StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="5">
+            <TextBox x:Name="SearchTextBox" Text="{Binding SearchQuery, Mode=TwoWay}" Classes="Search"/>
+            <Button x:Name="AddItem" Content="Добавить" Command="{Binding AddItemButton}" Classes="Action"/>
+            <Button x:Name="EditItem" Content="Изменить" Command="{Binding EditItemButton}" Classes="Action"/>
+            <Button x:Name="DeleteItem" Content="Удалить" Command="{Binding DeleteItemButton}" Classes="Action"/>
+        </StackPanel>
+
+        <Panel DataContext="{Binding DataGridContainer}"/>
+        
+        <!-- <DataGrid x:Name="ItemDataGrid"  -->
+        <!--           x:CompileBindings="False"  -->
+        <!--           AutoGenerateColumns="True"  -->
+        <!--           CanUserSortColumns="False" -->
+        <!--           CanUserResizeColumns="True" -->
+        <!--           MinColumnWidth="100" -->
+        <!--           IsReadOnly="True"  -->
+        <!--           ItemsSource="{Binding ItemsOnDataGrid}" -->
+        <!--           SelectedItem="{Binding CurrentItem}" -->
+        <!--           Height="600"> -->
+        <!-- </DataGrid>         -->
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="15">
+            <Button Content="&lt;&lt;" Command="{Binding TakeItems}" CommandParameter="{x:Static utils:TakeItemsEnum.FirstItems}" Classes="Pagination"/>
+            <Button Content="&lt;" Command="{Binding TakeItems}" CommandParameter="{x:Static utils:TakeItemsEnum.PreviousItems}" Classes="Pagination"/>
+            <TextBlock Classes="Pagination">
+                <Run Text="{Binding CurrentPage}" />
+                <Run Text="/"/>
+                <Run Text="{Binding TotalPages}" />
+            </TextBlock>
+            <Button Content="&gt;" Command="{Binding TakeItems}" CommandParameter="{x:Static utils:TakeItemsEnum.NextItems}" Classes="Pagination"/>
+            <Button Content="&gt;&gt;" Command="{Binding TakeItems}" CommandParameter="{x:Static utils:TakeItemsEnum.LastItems}" Classes="Pagination"/>
+        </StackPanel>
+    </StackPanel>
+    
+</UserControl>

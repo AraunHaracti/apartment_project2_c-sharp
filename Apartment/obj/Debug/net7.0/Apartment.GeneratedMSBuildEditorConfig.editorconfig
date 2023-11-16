@@ -20,3 +20,6 @@ build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
 [/home/KHPK.RU/student/Рабочий стол/project/Apartment/Apartment/Views/MainWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/home/KHPK.RU/student/Рабочий стол/project/Apartment/Apartment/Views/UserInterfaces/UserInterfaceView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Apartment.Demos;
 using MySqlConnector;
 
 namespace Apartment.Utils;
@@ -7,7 +8,7 @@ public static class Settings
 {
     public static List<IModule> ModulesMainWindow = new List<IModule>()
     {
-        
+        new EmployeeDemo(),
     };
     
     public static MySqlConnectionStringBuilder DatabaseConnectionStringBuilder = new()
