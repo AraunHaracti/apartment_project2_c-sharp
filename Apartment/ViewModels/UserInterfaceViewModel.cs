@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
-using Apartment.Models;
 using Apartment.Utils;
 using Avalonia;
-using Avalonia.Collections;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
-using Avalonia.Data;
 using MySqlConnector;
 using ReactiveUI;
 
@@ -19,7 +16,7 @@ public abstract class UserInterfaceViewModel<T> : ViewModelBase, IUserInterfaceV
 {
     public string NameCategory { get => GetNameCategory(); }
     
-    private readonly Window? _parentWindow;
+    private Window? _parentWindow;
     
     private List<T> _itemsFromDatabase;
 
@@ -29,8 +26,8 @@ public abstract class UserInterfaceViewModel<T> : ViewModelBase, IUserInterfaceV
     
     private readonly int _countItems = 15;
 
-    public UserControl DataTable { get => new Views.UserInterfaces.DataGrids.EmployeeDataGrid(); }
-    
+    public UserControl DataTable => GetDataTable();
+
     public int CurrentPage { get; set; } = 1;
 
     public int TotalPages
@@ -70,11 +67,7 @@ public abstract class UserInterfaceViewModel<T> : ViewModelBase, IUserInterfaceV
     public UserInterfaceViewModel()
     {
         _sql = GetSql();
-        if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
-        {
-            _parentWindow = desktop.MainWindow;
-        }
-        
+
         GetAndUpdateItems();
         
         PropertyChanged += OnSearchQueryChanged;
@@ -82,30 +75,29 @@ public abstract class UserInterfaceViewModel<T> : ViewModelBase, IUserInterfaceV
     
     public void AddItemButton()
     {
-        // var view = new CourseInfoCard();
-        // var vm = new CourseInfoCardViewModel(GetAndUpdateItems);
-        // view.DataContext = vm;
-        // view.ShowDialog(_parentWindow);
+        if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
+        {
+            AddItem(desktop.MainWindow, GetAndUpdateItems);
+        }
     }
 
     public void EditItemButton()
     {
         if (CurrentItem == null)
             return;
-        // var view = new CourseInfoCard();
-        // var vm = new CourseInfoCardViewModel(GetAndUpdateItems, CurrentItem);
-        // view.DataContext = vm;
-        // view.ShowDialog(_parentWindow);
+        
+        if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
+        {
+            EditItem(desktop.MainWindow, GetAndUpdateItems, CurrentItem);
+        }
     }
     
     public void DeleteItemButton()
     {
-        // if (CurrentItem == null)
-        //     return;
-        // var view = new CourseInfoCard();
-        // var vm = new CourseInfoCardViewModel(GetAndUpdateItems, CurrentItem);
-        // view.DataContext = vm;
-        // view.ShowDialog(_parentWindow);
+        if (CurrentItem == null)
+            return;
+        
+        DeleteItem(GetAndUpdateItems, CurrentItem);
     }
     
     private void OnSearchQueryChanged(object? sender, PropertyChangedEventArgs e)
@@ -186,4 +178,9 @@ public abstract class UserInterfaceViewModel<T> : ViewModelBase, IUserInterfaceV
     protected abstract Func<T, bool> SetFilterForSearch();
     protected abstract string GetSql();
     protected abstract string GetNameCategory();
+    protected abstract UserControl GetDataTable();
+    
+    protected abstract void AddItem(Window window, Action action);
+    protected abstract void EditItem(Window window, Action action, T item);
+    protected abstract void DeleteItem(Action action, T item);
 }

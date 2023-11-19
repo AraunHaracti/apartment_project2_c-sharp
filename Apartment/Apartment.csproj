@@ -30,4 +30,9 @@
         <PackageReference Include="MySql.EntityFrameworkCore" Version="7.0.10" />
         <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0" />
     </ItemGroup>
+
+
+    <ItemGroup>
+      <UpToDateCheckInput Remove="Views\WorkWithItem\Elements\TextElement.axaml" />
+    </ItemGroup>
 </Project>

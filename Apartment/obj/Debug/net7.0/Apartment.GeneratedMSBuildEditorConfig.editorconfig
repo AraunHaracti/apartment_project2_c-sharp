@@ -24,5 +24,11 @@ build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 [C:/Users/Timofey/Desktop/Reps/C_sharp/apartment_project2_c-sharp/Apartment/Views/UserInterfaces/DataGrids/EmployeeDataGrid.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
+[C:/Users/Timofey/Desktop/Reps/C_sharp/apartment_project2_c-sharp/Apartment/Views/UserInterfaces/DataGrids/ProblemDataGrid.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [C:/Users/Timofey/Desktop/Reps/C_sharp/apartment_project2_c-sharp/Apartment/Views/UserInterfaces/UserInterfaceView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/Timofey/Desktop/Reps/C_sharp/apartment_project2_c-sharp/Apartment/Views/WorkWithItem/WorkWithItemWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

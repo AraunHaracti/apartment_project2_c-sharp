@@ -6,9 +6,9 @@ namespace Apartment.Utils;
 
 public static class Settings
 {
-    public static List<IModule> ModulesMainWindow = new List<IModule>()
+    public static List<IModule> ModulesMainWindow = new()
     {
-        new EmployeeDemo(),
+        new EmployeeDemo(), new ProblemDemo()
     };
     
     public static MySqlConnectionStringBuilder DatabaseConnectionStringBuilder = new()

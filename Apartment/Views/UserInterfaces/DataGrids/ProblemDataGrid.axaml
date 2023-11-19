@@ -1,0 +1,24 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Apartment.Views.UserInterfaces.DataGrids.ProblemDataGrid">
+  <DataGrid x:Name="ItemDataGrid"
+            x:CompileBindings="False"
+            AutoGenerateColumns="False"
+            CanUserSortColumns="False"
+            CanUserResizeColumns="True"
+            MinColumnWidth="100"
+            IsReadOnly="True"
+            ItemsSource="{Binding ItemsOnDataGrid}"
+            SelectedItem="{Binding CurrentItem}"
+            Height="600">
+    <DataGrid.Columns>
+      <DataGridTextColumn Header="Имя" Binding="{Binding Name}" Width="100"/>
+      <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname}" Width="100"/>
+      <DataGridTextColumn Header="День рождения" Binding="{Binding Birthday}" Width="100"/>
+      <DataGridTextColumn Header="Почта" Binding="{Binding Email}" Width="100"/>
+    </DataGrid.Columns>
+  </DataGrid>
+</UserControl>
