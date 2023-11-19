@@ -14,7 +14,7 @@ public class EmployeeDemo : IModule
     private EmployeeViewModel _viewModel;
     
     public string Name => "Работники";
-    public Bitmap Picture => new(AssetLoader.Open(new Uri("avares://Apartment/Assets/employee.png")));
+    public Bitmap Picture => new(AssetLoader.Open(new Uri("avares://Apartment/Assets/Categories/employee.png")));
 
     public UserControl UserInterface
     {

@@ -10,11 +10,14 @@
     
     <UserControl.Styles>
         <Style Selector="TextBox.Search">
-            <Setter Property="Width" Value="300"/>
+            <Setter Property="Width" Value="400"/>
             <Setter Property="Margin" Value="5"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
         </Style>
         <Style Selector="Button.Action">
-            <Setter Property="Width" Value="150"/>
+            <Setter Property="Width" Value="70"/>
+            <Setter Property="Height" Value="35"/>
             <Setter Property="Margin" Value="5"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
         </Style>
@@ -27,29 +30,39 @@
             <Setter Property="Margin" Value="5"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
+        <Style Selector="TextBlock.Category">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="17"/>
+        </Style>
     </UserControl.Styles>
 
     <StackPanel>
-        <StackPanel Orientation="Horizontal" Margin="5">
-            <TextBox x:Name="SearchTextBox" Text="{Binding SearchQuery, Mode=TwoWay}" Classes="Search"/>
-            <Button x:Name="AddItem" Content="Добавить" Command="{Binding AddItemButton}" Classes="Action"/>
-            <Button x:Name="EditItem" Content="Изменить" Command="{Binding EditItemButton}" Classes="Action"/>
-            <Button x:Name="DeleteItem" Content="Удалить" Command="{Binding DeleteItemButton}" Classes="Action"/>
-        </StackPanel>
-
-        <Panel DataContext="{Binding DataGridContainer}"/>
+        <Grid Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Orientation="Horizontal">
+                <Button x:Name="AddItem" Command="{Binding AddItemButton}" Classes="Action">
+                    <Image Source="/Assets/WorkWithItem/add.png"/>
+                </Button>
+                <Button x:Name="EditItem" Command="{Binding EditItemButton}" Classes="Action">
+                    <Image Source="/Assets/WorkWithItem/edit.png"/>
+                </Button>
+                <Button x:Name="DeleteItem" Command="{Binding DeleteItemButton}" Classes="Action">
+                    <Image Source="/Assets/WorkWithItem/delete.png"/>
+                </Button>
+            </StackPanel>
+            
+            <TextBlock Grid.Column="1" Text="{Binding NameCategory}" Classes="Category"/>
+            
+            <TextBox Grid.Column="2" x:Name="SearchTextBox" Watermark="Найти ..." Text="{Binding SearchQuery, Mode=TwoWay}" Classes="Search"/>
+        </Grid>
         
-        <!-- <DataGrid x:Name="ItemDataGrid"  -->
-        <!--           x:CompileBindings="False"  -->
-        <!--           AutoGenerateColumns="True"  -->
-        <!--           CanUserSortColumns="False" -->
-        <!--           CanUserResizeColumns="True" -->
-        <!--           MinColumnWidth="100" -->
-        <!--           IsReadOnly="True"  -->
-        <!--           ItemsSource="{Binding ItemsOnDataGrid}" -->
-        <!--           SelectedItem="{Binding CurrentItem}" -->
-        <!--           Height="600"> -->
-        <!-- </DataGrid>         -->
+        <ContentPresenter Content="{Binding DataTable}"/>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="15">
             <Button Content="&lt;&lt;" Command="{Binding TakeItems}" CommandParameter="{x:Static utils:TakeItemsEnum.FirstItems}" Classes="Pagination"/>

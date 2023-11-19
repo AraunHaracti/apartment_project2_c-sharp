@@ -13,6 +13,5 @@ public partial class UserInterfaceView : UserControl
     public UserInterfaceView()
     {
         InitializeComponent();
-        
     }
 }

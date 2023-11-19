@@ -26,10 +26,8 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <Image Width="32" Height="32" Margin="5"
+                        <Image Width="40" Height="40" Margin="5"
                                Source="{Binding Picture}" />
-                        <TextBlock FontSize="10" HorizontalAlignment="Center"
-                                   Text="{Binding Name}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

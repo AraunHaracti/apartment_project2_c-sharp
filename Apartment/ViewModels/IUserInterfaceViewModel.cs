@@ -8,7 +8,8 @@ namespace Apartment.ViewModels;
 
 public interface IUserInterfaceViewModel : IDisposable
 {
-    object? DataGridContainer { get; }
+    string NameCategory { get; }
+    UserControl DataTable { get; }
     int CurrentPage { get; set; }
     int TotalPages { get; }
     string SearchQuery { get; set; }

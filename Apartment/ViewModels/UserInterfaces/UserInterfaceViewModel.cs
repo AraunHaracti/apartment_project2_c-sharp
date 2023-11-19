@@ -6,6 +6,7 @@ using System.Linq;
 using Apartment.Models;
 using Apartment.Utils;
 using Avalonia;
+using Avalonia.Collections;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data;
@@ -16,6 +17,8 @@ namespace Apartment.ViewModels.UserInterfaces;
 
 public abstract class UserInterfaceViewModel<T> : ViewModelBase, IUserInterfaceViewModel 
 {
+    public string NameCategory { get => GetNameCategory(); }
+    
     private readonly Window? _parentWindow;
     
     private List<T> _itemsFromDatabase;
@@ -25,6 +28,8 @@ public abstract class UserInterfaceViewModel<T> : ViewModelBase, IUserInterfaceV
     private string _sql;
     
     private readonly int _countItems = 15;
+
+    public UserControl DataTable { get => new Views.UserInterfaces.DataGrids.EmployeeDataGrid(); }
     
     public int CurrentPage { get; set; } = 1;
 
@@ -61,14 +66,7 @@ public abstract class UserInterfaceViewModel<T> : ViewModelBase, IUserInterfaceV
             this.RaisePropertyChanged();
         }
     }
-
-    public object? DataGridContainer
-    {
-        get => GetDataGrid();
-    }
-
-    protected abstract object? GetDataGrid();
-
+    
     public UserInterfaceViewModel()
     {
         _sql = GetSql();
@@ -186,8 +184,6 @@ public abstract class UserInterfaceViewModel<T> : ViewModelBase, IUserInterfaceV
     
     protected abstract T GetItemFromReader(MySqlDataReader reader);
     protected abstract Func<T, bool> SetFilterForSearch();
-    protected abstract ObservableCollection<DataGridColumn> GetColumns();
-
     protected abstract string GetSql();
-
+    protected abstract string GetNameCategory();
 }

@@ -5,6 +5,7 @@
       <map>
         <entry key="Apartment/App.axaml" value="Apartment/Apartment.csproj" />
         <entry key="Apartment/Views/MainWindow.axaml" value="Apartment/Apartment.csproj" />
+        <entry key="Apartment/Views/UserInterfaces/DataGrids/EmployeeDataGrid.axaml" value="Apartment/Apartment.csproj" />
         <entry key="Apartment/Views/UserInterfaces/EmployeeView.axaml" value="Apartment/Apartment.csproj" />
         <entry key="Apartment/Views/UserInterfaces/UserInterfaceView.axaml" value="Apartment/Apartment.csproj" />
       </map>

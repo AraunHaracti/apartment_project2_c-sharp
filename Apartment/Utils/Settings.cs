@@ -13,10 +13,10 @@ public static class Settings
     
     public static MySqlConnectionStringBuilder DatabaseConnectionStringBuilder = new()
     {
-        Server = "10.10.1.24",
+        Server = "localhost",
         Port = 3306,
-        Database = "pro1_12",
-        UserID = "user_01",
-        Password = "user01pro"
+        Database = "project2",
+        UserID = "root",
+        Password = "password"
     };
 }

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/KHPK.RU/student/Рабочий стол/project/Apartment/Apartment/Apartment.csproj": {}
+    "C:\\Users\\Timofey\\Desktop\\Reps\\C_sharp\\apartment_project2_c-sharp\\Apartment\\Apartment.csproj": {}
   },
   "projects": {
-    "/home/KHPK.RU/student/Рабочий стол/project/Apartment/Apartment/Apartment.csproj": {
+    "C:\\Users\\Timofey\\Desktop\\Reps\\C_sharp\\apartment_project2_c-sharp\\Apartment\\Apartment.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/KHPK.RU/student/Рабочий стол/project/Apartment/Apartment/Apartment.csproj",
+        "projectUniqueName": "C:\\Users\\Timofey\\Desktop\\Reps\\C_sharp\\apartment_project2_c-sharp\\Apartment\\Apartment.csproj",
         "projectName": "Apartment",
-        "projectPath": "/home/KHPK.RU/student/Рабочий стол/project/Apartment/Apartment/Apartment.csproj",
-        "packagesPath": "/home/KHPK.RU/student/.nuget/packages/",
-        "outputPath": "/home/KHPK.RU/student/Рабочий стол/project/Apartment/Apartment/obj/",
+        "projectPath": "C:\\Users\\Timofey\\Desktop\\Reps\\C_sharp\\apartment_project2_c-sharp\\Apartment\\Apartment.csproj",
+        "packagesPath": "C:\\Users\\Timofey\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Timofey\\Desktop\\Reps\\C_sharp\\apartment_project2_c-sharp\\Apartment\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/KHPK.RU/student/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Timofey\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -101,7 +101,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/7.0.109/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     }
